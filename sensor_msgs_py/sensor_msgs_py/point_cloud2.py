@@ -77,8 +77,8 @@ def read_points(
     :param reshape_organized_cloud: Returns the array as an 2D organized point cloud if set.
     :return: Structured NumPy array containing all points.
     """
-    assert isinstance(cloud, PointCloud2), \
-        'Cloud is not a sensor_msgs.msg.PointCloud2'
+    assert "PointCloud2" in str(type(cloud)), \
+        'Cloud is not of type PointCloud2'
 
     # Cast bytes to numpy array
     points = np.ndarray(
@@ -175,8 +175,8 @@ def read_points_list(
                 coordinates. (Type: Iterable, Default: None]
     :return: List of namedtuples containing the values for each point
     """
-    assert isinstance(cloud, PointCloud2), \
-        'cloud is not a sensor_msgs.msg.PointCloud2'
+    assert "PointCloud2" in str(type(cloud)), \
+        'Cloud is not of type PointCloud2'
 
     if field_names is None:
         field_names = [f.name for f in cloud.fields]
